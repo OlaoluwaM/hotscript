@@ -30,12 +30,16 @@ type EmptyIntoPlaceholder<x> = IsNever<x> extends true
   ? _
   : x;
 
+type _0 = MergeArgsRec<[1, 2], [5, 2 ,never, _]>
+
 type MapEmptyIntoPlaceholder<xs, output extends any[] = []> = xs extends [
   infer first,
   ...infer rest
 ]
   ? MapEmptyIntoPlaceholder<rest, [...output, EmptyIntoPlaceholder<first>]>
   : output;
+
+type _1 = MapEmptyIntoPlaceholder<[unset, never]>
 
 export type MergeArgs<
   pipedArgs extends any[],

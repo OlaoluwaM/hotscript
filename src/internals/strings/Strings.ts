@@ -141,6 +141,8 @@ export namespace Strings {
       : never;
   }
 
+  type _1 = H.UnionToTuple<"b" | "c">
+
   /**
    * Cut a slice of a string out from a start index to an end index.
    * @param args[0] - The string to slice.

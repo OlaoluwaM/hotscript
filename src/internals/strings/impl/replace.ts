@@ -10,6 +10,8 @@ export type Replace<
     : Str
   : Str;
 
+type _0 = Replace<"abcbdbebfbgb", "b", "o">
+
 export interface ReplaceReducer<To extends string> extends Fn {
   return: this["args"] extends [
     infer Str extends string,

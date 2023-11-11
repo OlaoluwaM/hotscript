@@ -38,6 +38,13 @@ export type UnionToIntersection<union> = (
   ? intersection
   : never;
 
+type EE = UnionToIntersection<(() => 1) | (() => 2)> extends () => infer L ? L : never
+
+const foo: { a: string } | { b: string } = {
+  a: "hello",
+  b: "hi",
+};
+
 export type Prettify<T> = { [K in keyof T]: T[K] } | never;
 
 export type RecursivePrettify<T> = IsArrayStrict<T> extends true
@@ -158,6 +165,14 @@ type GetUnionLast<Union> = UnionToIntersection<
 > extends () => infer Last
   ? Last
   : never;
+
+type GetUnionLastAlt<Union> = UnionToIntersection<
+  Union extends any ? () => Union : never
+> extends () => infer Last
+  ? Last
+  : never;
+
+type _2 = GetUnionLast<"a" | "b">
 
 /**
  * Convert union to tuple

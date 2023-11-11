@@ -19,6 +19,8 @@ type SplitManySep<
   ? ConcatSplits<H.Split<Str, FirstSep>, RestSep>
   : [Str, ...Acc];
 
+type _0 = ConcatSplits<["Hi", "my", "name", "is", "Ola"], [" "]>
+
 /**
  * Split a string into a tuple.
  * @param Str - The string to split.
